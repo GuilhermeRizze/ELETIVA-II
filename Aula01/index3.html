@@ -1,0 +1,23 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo</title>
+</head>
+<body>
+    <input type="text" id="msg" />
+    <input type="text" id="msg" />
+
+    <div id="resultado">
+    </div>
+
+
+    <script>
+        var nome = window.prompt('Digite seu nome')
+        var texto = `Olá ${nome}, tudo bem com vc`   //aspas simples para concatenar, utilizando crase
+
+        var titulo = document.getElementById("texto_h1") //pegou o elemento
+        titulo.append(texto) // atribui ao elemento
+    </script>
+</body>
+</html>

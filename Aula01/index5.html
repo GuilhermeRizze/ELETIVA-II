@@ -1,0 +1,27 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo</title>
+</head>
+<body>
+    <input type="text" id="texto" />
+    <input type="button" value="GERAR" onclick="gerar()"/>
+    <br/>
+    <div id="caixas" style="white-space: 100%; background-color: bisque;">
+
+    </div>
+
+    <script>
+        function gerar() {
+            var div =   '<div style="background-color: rgb(255,241,0); width: 100px; height: 100px;">' +  
+                        '</div>'
+            var item_div = document.createElement('div')
+            item_div.style= 'background-color: rgb(255,241,0); width: 100px; height: 100px;'
+            var caixas = document.getElementById('caixas')
+            caixas.append(item_div) 
+        }
+        
+    </script>
+</body>
+</html>

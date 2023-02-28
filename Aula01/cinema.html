@@ -1,0 +1,49 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo</title>
+</head>
+<body>
+    
+    <div id="caixas" style="white-space: 100%; background-color: bisque;">
+
+    </div>
+
+    <script>
+        function gerar() {
+            var div =   '<div style="background-color: rgb(255,241,0); width: 100px; height: 100px;">' +  
+                        '</div>'
+            
+            var num = document.getElementById('texto').value
+
+            for(var i = 0; i < 60; i++){
+
+
+                var item_div = document.createElement('div')
+                item_div.style= `background-color: #ccc; width: 100px; height: 100px; border-radius: 50px; float:left;`
+                item_div.innerHTML = i
+                item_div.id = i
+                item_div.value = true
+                item_div.onclick = function() {
+                    this.style = `background-color: rgb(255,0,0); width: 100px; height: 100px; border-radius: 50px; float:left;`
+
+                    if(this.value == true){
+                        this.style = `background-color: rgb(255,0,0); width: 100px; height: 100px; border-radius: 50px; float:left;`
+                        this.value =false
+                    } else{
+                        this.style = `background-color: #ccc; width: 100px; height: 100px; border-radius: 50px; float:left;`
+                        this.value =true
+                    }
+                    
+                }
+                caixas.append(item_div)
+
+            }  
+        }
+
+
+        
+    </script>
+</body>
+</html>

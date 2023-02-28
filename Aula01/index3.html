@@ -5,19 +5,22 @@
     <title>Exemplo</title>
 </head>
 <body>
-    <input type="text" id="msg" />
-    <input type="text" id="msg" />
+    <input type="text" id="texto" />
+    <input type="button" value="OK" onclick="mostrar()"/>
 
-    <div id="resultado">
+    <div id="resultado">  
     </div>
 
-
     <script>
-        var nome = window.prompt('Digite seu nome')
-        var texto = `Olá ${nome}, tudo bem com vc`   //aspas simples para concatenar, utilizando crase
+        function mostrar() {
+            var campo_texto = document.getElementById('texto')
+            var div_resultado = document.getElementById('resultado') 
 
-        var titulo = document.getElementById("texto_h1") //pegou o elemento
-        titulo.append(texto) // atribui ao elemento
+            //div_resultado.empty()
+            //div_resultado.append(campo_texto.value)
+            div_resultado.innerHTML = campo_texto.value
+        }
+        
     </script>
 </body>
 </html>

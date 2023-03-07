@@ -1,0 +1,49 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo</title>
+</head>
+<body>
+    <input type="text" id="texto" /> 
+
+    
+    <input type="button" value="+" onclick="soma()"/>
+    <input type="button" value="-" onclick="sub()"/>
+    <input type="button" value="*" onclick="mult()"/>
+    <input type="button" value="/" onclick="div()"/>
+
+
+    <input type="button" value="1" onclick="um()"/>
+    <input type="button" value="2" onclick="dois()"/>
+    <input type="button" value="3" onclick="tres()"/>
+    <input type="button" value="4" onclick="quatro()"/>
+    <input type="button" value="5" onclick="cinco()"/>
+    <input type="button" value="6" onclick="seis()"/>
+    <input type="button" value="7" onclick="sete()"/>
+    <input type="button" value="8" onclick="oito()"/>
+    <input type="button" value="9" onclick="nove()"/>
+
+
+    <input type="button" value="=" onclick="mostrar()"/>
+
+    <div id="resultado">  
+    </div>
+
+
+    <script>
+        function soma() {
+            var campo_texto = document.getElementById('texto')
+            var div_resultado = document.getElementById('resultado') 
+            var cont = `${div_resultado} ${'+'} ${campo_texto}`
+            //var concat = div_resultado + 
+            //var valores = campo_texto
+
+            //div_resultado.empty()
+            div_resultado.append(cont.value)
+            //div_resultado.innerHTML = campo_texto.value
+        }
+        
+    </script>
+</body>
+</html>

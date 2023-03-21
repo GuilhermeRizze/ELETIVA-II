@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="cep" />
+
+    <input type="button" value="Enviar" onclick="buscar()"/><br><br>
+
+    <label>RUA</label><input type="text" id="rua" size="60" /><br>
+	
+	<label>NUMERO</label><input type="text" id="numero" size="40" /><br>
+
+	<label>BAIRRO</label><input type="text" id="bairro" size="40" /><br>
+
+	<label>CIDADE</label><input type="text" id="cidade" size="40" /><br>
+    
+    <script>
+        
+        function buscar() {
+            var http = new XMLHttpRequest();
+            var cep_digt = document.getElementById('cep')
+            console.log(cep_digt)
+            http.open("GET", `http://viacep.com.br/ws/`+cep_digt+`/json/`, true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send();
+
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+
+                    var array = []
+
+                    array.push(JSON.parse(this.responseText))
+
+                    localStorage.setItem("Endereco", JSON.stringify(array));
+
+                    console.log(localStorage.getItem("Endereco"))
+                    
+                    dados = JSON.parse(localStorage.getItem("Endereco"))
+                    
+                    dados.forEach(item => {
+                        console.log(item.cep)
+                        console.log(item.logradouro)
+                    })
+
+                    var json = JSON.parse(this.responseText)
+                    console.log(json)
+                    console.log('Rua ' + json.logradouro)
+
+
+                    document.getElementById('rua').value=(json.logradouro);
+                    document.getElementById('bairro').value=(json.bairro);
+                    document.getElementById('cidade').value=(json.localidade);
+        
+                }
+            }
+            };
+        
+    </script>
+</body>
+
+</html>

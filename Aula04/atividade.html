@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <input type="text" id="cep" />
+    <input type="button" value="Enviar" onclick="buscar()" />
+
+
+    <div class="element-input"><label class="title">RUA</label><input name="rua" type="text" id="rua" size="60" /></label><br /></div>
+	
+	<div class="element-input"><label class="title">NUMERO</label><input name="numero" type="text" id="numero" size="40" /></label><br /></div>
+
+	<div class="element-input"><label class="title">BAIRRO</label><input name="bairro" type="text" id="bairro" size="40" /></label><br /></div>
+
+	<div class="element-input"><label class="title">CIDADE</label><input name="cidade" type="text" id="cidade" size="40" /></label><br /></div>
+    <script>
+        function buscar() {
+            var valor = document.getElementById('cep')
+            console.log(valor)
+            var http = new XMLHttpRequest();
+            http.open("GET", 'http://viacep.com.br/ws/'+ document.getElementById("cep") + '/json/', true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send();
+            /*
+            http.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+
+                    var array = []
+
+                    array.push(JSON.parse(this.responseText))
+
+                    localStorage.setItem("Endereco", JSON.stringify(array));
+
+
+                    console.log(localStorage.getItem("Endereco"))
+                    
+                    dados = JSON.parse(localStorage.getItem("Endereco"))
+                    
+                    dados.forEach(item => {
+                        console.log(item.cep)
+                        console.log(item.logradouro)
+                    })
+
+                    var json = JSON.parse(this.responseText)
+                    console.log(json)
+                    console.log('Rua ' + json.logradouro)
+                }
+            };*/
+
+            function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        }
+    </script>
+</body>
+
+</html>

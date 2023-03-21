@@ -1,0 +1,71 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora- Projeto Eletiva II</title>
+    <link href="estilo.css" rel="stylesheet">
+</head>
+<body>
+    <div class="fundo">
+        <h1>~Calculadora~</h1>
+        <div class="calculadora">
+            <p id="calculo"></p>
+            <table>                 
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="limpar()">Limpar</td>
+                    <td><button class="botao" onclick="apagar()">>></td>
+                    <td><button class="botao" onclick="digitar('/')">/</button></td>    
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="digitar('7')">7</button></td>
+                    <td><button class="botao" onclick="digitar('8')">8</button></td>
+                    <td><button class="botao" onclick="digitar('9')">9</button></td>
+                    <td><button class="botao" onclick="digitar('*')">*</button></td>   
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="digitar('4')">4</button></td>
+                    <td><button class="botao" onclick="digitar('5')">5</button></td>
+                    <td><button class="botao" onclick="digitar('6')">6</button></td>
+                    <td><button class="botao" onclick="digitar('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="digitar('1')">1</button></td>
+                    <td><button class="botao" onclick="digitar('2')">2</button></td>
+                    <td><button class="botao" onclick="digitar('3')">3</button></td>
+                    <td><button class="botao" onclick="digitar('+')">+</button></td>    
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="digitar('0')">0</button></td>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="calcular()">=</button></td>        
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function digitar(valor)
+        {
+            var numero = document.getElementById('calculo').innerHTML;
+            document.getElementById('calculo').innerHTML = numero + valor;
+        }
+        function calcular()
+        {
+            var resultado = document.getElementById('calculo').innerHTML;
+            if(resultado)
+            {
+                document.getElementById('calculo').innerHTML = eval(resultado);
+            }
+            else
+            {
+                document.getElementById('calculo').innerHTML = "0"
+            }
+        }
+        function apagar()
+        {
+            var resultado = document.getElementById('calculo').innerHTML;
+            document.getElementById('calculo').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+        function limpar()
+        {
+            document.getElementById('calculo').innerHTML = "";
+        }
+    </script>

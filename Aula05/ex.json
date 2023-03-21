@@ -1,0 +1,14 @@
+{
+    "nome": "teste",
+    "endereco": "teste2",
+    "carros": [
+        {
+            "marca":"Volks",
+            "modelo": "Fusca"
+        },
+        {
+            "marca": "Fiat",
+            "modelo": "Uno"
+        }
+    ]
+}

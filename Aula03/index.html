@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="texto" />
+    <input type="button" value="OK" onclick="mostrar()" />
+    <br />
+    <div id="resultado" style="background: green">
+
+    </div>
+    <script>
+        function mostrar()  {
+            var campo_texto = document.getElementById('texto')
+            var div_resultado = document.getElementById('resultado')
+            
+
+            //div_resultado.empty
+            div_resultado.append(campo_texto)
+
+            //div_resultado.innerHTML = campo_texto
+
+        }
+    </script>
+</body>
+</html>

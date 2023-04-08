@@ -13,6 +13,11 @@
 	<label>BAIRRO</label><input type="text" id="bairro" size="40" /><br>
 	<label>CIDADE</label><input type="text" id="cidade" size="40" /><br>
     <label>ESTADO</label><input type="text" id="estado" size="40" /><br>
+
+    <div id ="nome"></div>
+
+    <span id="conteudo"></span>
+
     
     <script>
         
@@ -32,10 +37,7 @@
 
                     array.push(JSON.parse(this.responseText))
 
-                    localStorage.setItem("Endereco", JSON.stringify(array));
-
-                    //console.log(localStorage.getItem("Endereco"))
-                    
+                    localStorage.setItem("Endereco", JSON.stringify(array));                    
                     dados = JSON.parse(localStorage.getItem("Endereco"))
                     
                     dados.forEach(item => {
@@ -55,53 +57,34 @@
                     var bairro = (json.bairro);
                     var cidade = (json.localidade);
                     var estado = (json.uf);
-        
-                
 
-            ceps = localStorage.getItem("BuscaCEP3")
-            if (ceps == null || ceps == undefined){
-                var vetor =[
-                    {
-                    CEP: 17055-790,
-                    endereco: 'Praça 9 de Julho',
-                    bairro: 'Vila Pacifíco',
-                    cidade: 'Bauru',
-                    estado: 'SP',
-                    }
-                ]
-                ceps = vetor
-                localStorage.setItem("BuscaCEP3",JSON.stringify(vetor))
-                alert('criado')
-            }else{
-                alert('existe')
-                ceps = JSON.parse(ceps)
-
-            /*itens.forEach( obj => {
-                var div = document.getElementById("nome")
-                div.append(obj.nome + "<br/>")
-            })*/
-            }
-
-
-                var save = {
+                    var save = {
                     CEP,
                     endereco, 
                     bairro,
                     cidade,
                     estado
                 }
-
-                console.log("--------------------")
-
-                ceps.push(save)
-                console.log(ceps)
-                alert(ceps)
+        
                 
-            
-            };
+                let ceps20 = new Array();
 
-        }
-            }
+                if(localStorage.hasOwnProperty("ceps20")){
+                    // Recuperar os valores da propriedade ceps20 do localStorage
+                    // Converte de String para Object
+                    ceps20 = JSON.parse(localStorage.getItem("ceps20"));
+                }
+
+                // Adiciona um novo objeto no array criado
+                ceps20.push({save});
+
+                // Salva no localStorage
+                localStorage.setItem("ceps20", JSON.stringify(ceps20));
+
+                document.getElementById("conteudo").insertAdjacentHTML('beforeend', "CEP: " + CEP);
+
+        }}
+    } 
         
     </script>
 </body>

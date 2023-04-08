@@ -30,7 +30,7 @@ function carregar (){
 
 carregar()
 
-var salvar = () => {
+var salvar = () => { 
     var nome = document.getElementById("firstname").value
     var idade = document.getElementById("idade").value
 

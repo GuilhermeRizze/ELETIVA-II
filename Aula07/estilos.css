@@ -1,0 +1,21 @@
+#caixa{
+    width: 350px;
+    height: 500px;
+    background-color: antiquewhite;
+}
+
+#topo {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    height: 100px;
+    background-color: bisque;
+}
+
+.conteudo{
+    background-color: blueviolet;
+}
+
+.abrir {
+    display: none;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form id="app-form">
+            <input type="text" v-model="input_name" />
+            <input type="submit" value="Enviar" v-on:click="submitForm" />
+            {{ message }}
+            <br>
+            {{ input_name }}
+        </form>
+
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    input_name: ""
+                }
+            },
+            methods: {
+                submitForm(e) {
+                    console.log("teste")
+                    e.preventDefault()
+                    this.message = this.input_name
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

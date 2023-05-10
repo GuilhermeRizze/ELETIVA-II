@@ -1,0 +1,36 @@
+#caixa {
+    width: 350px;
+    height: 500px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+}
+
+#mensagens {
+    flex: 1;
+    background-color: aquamarine;
+    overflow: scroll;
+}
+
+#conteudo {
+    background-color: blueviolet;
+}
+
+.bot {
+    background-color: antiquewhite;
+    padding: 10px;
+    width: 60%;
+    margin: 10px;
+    border-radius: 10px;
+    float: left;
+}
+
+.pessoa {
+    background-color: brown;
+    padding: 10px;
+    width: 60%;
+    margin: 10px;
+    border-radius: 10px;
+    float: right;
+    color: white;
+}
